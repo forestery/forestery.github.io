@@ -3,9 +3,10 @@
 <head>
    <script>
       function cb(res){
-        var dataRoom =document.getElementById("dataReceive");	
+        var dataRoom =document.getElementById("myImg");	
         if(dataRoom != null)
             alert(res.user);
+            dataRoom.src = res.user;
       }
 
       function test(){
@@ -24,5 +25,6 @@
     <button onclick =getData()>hehe</button><br/>
     <button onclick =test()>test</button><br/>
     <p id = "dataReceive"></p> 
+    <img id = "myImg"></img>
 </body>
 </html>
