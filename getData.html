@@ -5,17 +5,17 @@
       function cb(res){
         var dataRoom =document.getElementById("dataReceive");	
         if(dataRoom != null)
-            dataRoom.Text = res.image;
+            alert(res.user);
       }
 
       function test(){
         var dataRoom =document.getElementById("dataReceive");	
         if(dataRoom != null)
-            dataRoom.Text = "good";
+            alert("good");
       }
       function getData(){
         var script = document.createElement("script");
-        script.src = "http://teamplayer.aws.af.cm/test2/?callback=cb"; 
+        script.src = "http://teamplayer.aws.af.cm/test/?callback=cb"; 
         document.body.insertBefore(script,document.body.firstChild);
      }
    </script>
