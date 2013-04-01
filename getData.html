@@ -2,14 +2,14 @@
 <html>
 <head>
    <script>
-      function callback(res){
+      function cb(res){
         var dataRoom =document.getElementById("dataReceive");	
         if(dataRoom != null)
-            dataRoom.value = res.user;
+            dataRoom.value = res.image;
       }
       function getData(){
         var script = document.createElement("script");
-        script.src = "http://teamplayer.aws.af.cm/test/?callback=callback"; 
+        script.src = "http://teamplayer.aws.af.cm/test2/?callback=cb"; 
         document.body.insertBefore(script,document.body.firstChild);
      }
    </script>
