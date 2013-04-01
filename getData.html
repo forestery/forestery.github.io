@@ -7,6 +7,12 @@
         if(dataRoom != null)
             dataRoom.value = res.image;
       }
+
+      function test(){
+        var dataRoom =document.getElementById("dataReceive");	
+        if(dataRoom != null)
+            dataRoom.value = "good";
+      }
       function getData(){
         var script = document.createElement("script");
         script.src = "http://teamplayer.aws.af.cm/test2/?callback=cb"; 
@@ -16,6 +22,7 @@
 </head>
 <body>
     <button onclick =getData()>hehe</button><br/>
+    <button onclick =test()>test</button><br/>
     <p id = "dataReceive"></p> 
 </body>
 </html>
