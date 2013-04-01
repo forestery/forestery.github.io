@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script>
+      function callback(res){
+        var dataRoom = getElementById('dataReceive');	
+        if(dataRoom != null)
+            dataRoom.value = res.user;
+      }
+      function getData(){
+        var script = document.createElement("script");
+        script.src = "http://teamplayer.aws.af.cm/test/?callback=callback"; 
+        document.body.insertBefore(script,document.body.firstChild);
+     }
+   </script>
+</head>
+<body>
+    <button onclick =getData()>hehe</button><br/>
+    <p id = 'dataReceive'></p> 
+</body>
+</html>
