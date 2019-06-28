@@ -43,13 +43,31 @@
 </p>
 
 <pre><code>
-#!/usr/bin/python
+#!/usr/bin/env bash
 
-import cgi, os
-import cgitb; cgitb.enable()
-import json
-import subprocess
-from subprocess import Popen, PIPE
+pushd . > /dev/null
+SCRIPT_PATH="${BASH_SOURCE[0]}";
+while([ -h "${SCRIPT_PATH}" ]); do
+    cd "`dirname "${SCRIPT_PATH}"`"
+    SCRIPT_PATH="$(readlink "`basename "${SCRIPT_PATH}"`")";
+done
+cd "`dirname "${SCRIPT_PATH}"`" > /dev/null
+SCRIPT_PATH="`pwd`";
+rm -rf venv
+if [ "$1" == "python3" ];then
+    python3 ./virtualenv.py -p python3  --no-pip  --no-wheel --no-setuptools venv
+else
+    python ./virtualenv.py -p python  --no-pip  --no-wheel --no-setuptools venv
+fi
+
+source venv/bin/activate
+cd ./install/setuptools
+./setup.py install
+cd ../meld 
+python ./setup.py install
+cd ../supervisor 
+python ./setup.py install
+
 
 </code></pre>
 
